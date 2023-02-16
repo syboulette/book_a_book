@@ -1,17 +1,14 @@
-.card img {
-  width: 15vw;
-}
-
 .card p {
   opacity: .5;
 }
 
 .card {
-  width: 20vw;
+  height: auto;
+  width: 25%;
   border-radius: 3px;
   box-shadow: 0 0 5px rgb(230,230,230);
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid rgb(230,230,230);
 }
 
@@ -20,21 +17,15 @@
   justify-content: space-between;
   margin-bottom: 30px;
   flex-wrap: wrap;
+
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   margin: auto;
+  border: 1px solid rgb(230,230,230);
 }
-
-@media(max-width: 900px) {
-  .container {
-    width: 500px;
-  }
-}
-
-@media(max-width: 500px) {
-  .container {
-    width: 300px;
-  }
+.container h2 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
