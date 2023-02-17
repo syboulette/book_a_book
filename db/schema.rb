@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_15_193253) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_184557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_193253) do
     t.string "author"
     t.string "genre"
     t.integer "date_of_publication"
-    t.integer "age_restriction"
     t.integer "user_id"
     t.integer "daily_price"
     t.string "language"
