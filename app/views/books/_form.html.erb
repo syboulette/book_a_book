@@ -1,17 +1,9 @@
-<%= form_with model: @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :date_of_publication %>
-  <%= f.number_field :date_of_publication %>
-  <%= f.label :language %>
-  <%= f.text_field :language %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :daily_price %>
-  <%= f.number_field :daily_price %>
-  <%= f.submit %>
+<%= simple_form_for(book) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :genre %>
+  <%= f.input :date_of_publication %>
+  <%= f.input :daily_price %>
+  <%= f.input :language %>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>

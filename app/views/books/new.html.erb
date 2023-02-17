@@ -1,17 +1,12 @@
-<%= form_with model: @book do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :date_of_publication %>
-  <%= f.number_field :date_of_publication %>
-  <%= f.label :language %>
-  <%= f.text_field :language %>
-  <%= f.label :genre %>
-  <%= f.text_field :genre %>
-  <%= f.label :daily_price %>
-  <%= f.number_field :daily_price %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-6 m-auto">
+      <div class="flat-form">
+        <h1>Add a new Book</h1>
+        <div class="mt-3">
+          <%= render "form", book: @book %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @books = Book.all
+    @book = Book.all
   end
 
   def new
@@ -10,14 +10,17 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(params[:book])
-    @book.save
-    redirect_to books_path
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to books_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :age_restriction, :daily_price, :language)
+    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language)
   end
 end
