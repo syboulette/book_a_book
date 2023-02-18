@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @book = Book.all
+    @books = Book.all
   end
 
   def new
