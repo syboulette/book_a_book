@@ -11,8 +11,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book.user = current_user
     if @book.save
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +30,7 @@ class BooksController < ApplicationController
   def update
     set_book
     if @book.update(book_params)
-      redirect_to books_path(@book)
+      redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +39,7 @@ class BooksController < ApplicationController
   def destroy
     set_book
     @book.destroy
-    redirect_to books_path, status: :see_other
+    redirect_to book_path(@book), status: :see_other
   end
 
   private
