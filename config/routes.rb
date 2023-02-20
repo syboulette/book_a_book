@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "books#destroy", as: :destroy
   resources :books
+  resources :rentals, only: [:index]
 end
