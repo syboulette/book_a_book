@@ -6,7 +6,7 @@
   <% @books.each do |book| %>
     <li><%= book.title %></li>
     <li><%= book.author %></li>
-    <li><%= book.genre%></li>
     <p><%= link_to "Show", book_path(book) %></p>
+    <p><%= link_to "Delete", book_path(book) %></p>
   <% end %>
 </ul>
