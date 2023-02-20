@@ -40,7 +40,7 @@ class BooksController < ApplicationController
   def destroy
     set_book
     @book.destroy
-    redirect_to book_path(@book), status: :see_other
+    redirect_to book_path(@book), status: :see_other, notice: "The offer has been deleted!"
   end
 
   private
