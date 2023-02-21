@@ -8,8 +8,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-
-    authorize @book
+    # authorize @book
   end
 
   def create

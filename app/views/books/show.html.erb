@@ -4,5 +4,5 @@
 <div>
   <%= link_to "Back to browsing books.", root_path %>
   <%= link_to "Edit", edit_book_path(@book) if policy(@book).edit? %>
-  <%=  button_to "Delete", @book, method: :delete if policy(@restaurant).destroy?%>
+  <%=  button_to "Delete", @book, method: :delete if policy(@book).destroy?%>
 </div>
