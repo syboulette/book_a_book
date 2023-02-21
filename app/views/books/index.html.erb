@@ -1,8 +1,13 @@
+<h2>This is the Index Page</h2>
 <h2>Books!</h2>
+<p>What do you want to do?</p>
+<p><%= link_to "Add a book", new_book_path %></p>
+<h1>See existing books:</h1>
 <ul>
   <% @books.each do |book| %>
-    <li><%= book.title %></li>
-    <li><%= book.author %></li>
-    <li><%= book.genre%></li>
+    <p> Title: <%= book.title %></p>
+    <p> Author: <%= book.author %></p>
+    <p><%= link_to "Show", book_path(book) %></p>
+    <p>_________________________________</p>
   <% end %>
 </ul>
