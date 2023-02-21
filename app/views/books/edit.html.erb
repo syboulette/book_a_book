@@ -1,0 +1,10 @@
+<h2>This is the Edit page</h2>
+<%= simple_form_for(@book) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :genre %>
+  <%= f.input :date_of_publication %>
+  <%= f.input :daily_price %>
+  <%= f.input :language %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
