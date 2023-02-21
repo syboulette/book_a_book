@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  delete "/books/:id", to: "books#destroy", as: :destroy_book
   resources :books
   resources :rentals, only: [:index]
 end
