@@ -21,15 +21,12 @@ class BooksController < ApplicationController
   end
 
   def show
-    set_book
   end
 
   def edit
-    set_book
   end
 
   def update
-    set_book
     if @book.update(book_params)
       redirect_to book_path(@book)
     else
@@ -38,9 +35,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    set_book
     @book.destroy
-    redirect_to book_path(@book), status: :see_other, notice: "The offer has been deleted!"
+    redirect_to root_path, status: :see_other, notice: "The book has been deleted!"
   end
 
   private
