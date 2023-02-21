@@ -5,9 +5,6 @@ require 'faker'
 # Examples:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-<<<<<<< HEAD
-#   Character.create(name: "Luke", movie: movies.first
-=======
 #   Character.create(name: "Luke", movie: movies.first)
 
 # FAKER USER ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -43,4 +40,3 @@ require 'faker'
 #   )
 #   book.save!
 # end
->>>>>>> master
