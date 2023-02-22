@@ -33,9 +33,9 @@ puts "Creating 20 fake books"
         title: Faker::Book.title, #=> "The Odd Sister"
         author: Faker::Book.author, #=> "Alysha Olsen"
         genre: Faker::Book.genre, #=> "Mystery"
-        date_of_publication: Faker::Date.backward(days: 100_00) #=> "Fri, 19 Sep 2014"
+        date_of_publication: Faker::Date.backward(days: 100_00), #=> "Fri, 19 Sep 2014"
         language: ["English", "Portuguese", "French", "Spanish", "German"].sample,
-        daily_price: rand(1..2),
+        daily_price: rand(0,10..2,00),
         # users: user,
         status: false
     )
