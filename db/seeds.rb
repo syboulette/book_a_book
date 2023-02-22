@@ -19,14 +19,14 @@ puts 'Cleaning books database...'
 Book.destroy_all
 puts 'creating books...'
 
-20.times do
-  book = Book.create(
+20.times do Book.create!(
     title: Faker::Book.title, #=> "The Odd Sister",
     author: Faker::Book.author, #=> "Alysha Olsen"
     genre: Faker::Book.genre, #=> "Mystery"
-    date_of_publication: rand(1..2023),
+    date_of_publication: Faker::Date.backward(days: 100_00),
     language: ["English", "Portuguese", "French", "Spanish", "German"].sample.to_s,
-    daily_price: rand(0.01..10.00)
+    daily_price: rand(0.01..10.00),
+    user_id: User.all.sample.id
   )
 end
 puts 'Finished seeding books!'
