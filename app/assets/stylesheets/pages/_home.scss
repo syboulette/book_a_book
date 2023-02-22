@@ -1,4 +1,27 @@
 // Specific CSS for your home-page
+h1 {
+  text-align: center;
+  color: $light-beige;
+  font-size: 100px;
+}
+
+.logo-type {
+  font-family: $logo-font
+}
+.title {
+  padding: 20px 20px;
+  background-color: $purple;
+}
+.book-title {
+  text-transform: capitalize;
+}
+.book-author {
+  text-transform: capitalize;
+}
+.book-extract {
+  font-style: italic;
+}
+
 // html {
 //   height: 100%;
 //   box-sizing: border-box;

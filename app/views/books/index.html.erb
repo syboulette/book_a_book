@@ -1,10 +1,23 @@
-
-<h2>This is the Index Page</h2>
-<h2>Books!</h2>
-<ul>
-  <% @books.each do |book| %>
-    <li><%= book.title %></li>
-    <li><%= book.author %></li>
-    <li><%= book.genre%></li>
+<div class="content">
+  <div><h1>Welcome to </h1><h1 class="logo-type">Book a Book</h1></div>
+  <% if user_signed_in? %>
+      <p><%= link_to "Add a book", new_book_path %></p>
   <% end %>
-</ul>
+  <%= Faker::Lorem.sentences(number: 200) %>
+  <div class="card-product">
+    <div class="container">
+      <h2 class="text-center">Here are some of the amazing books you can rent with book a book!</h2>
+      <div class="cards">
+        <div class="card">
+          <% @books.each do |book| %>
+          <h4 class="book-title"> Title: <%= book.title %></h4>
+          <h5 class="book-author"> Author: <%= book.author %></h5>
+          <h5 class="book-genre"> Genre: <%= book.genre %></h5>
+          <p class="book-rental-price">€2</p>
+          <p><%= link_to "read more", book_path(book) %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
