@@ -1,4 +1,8 @@
 <h1>Title: <%= @book.title %></h1>
-<h1>Author: <%= @book.title %></h1>
-<p><%= link_to "Back to browsing books.", root_path %></p>
-<p><%= link_to "Edit", edit_book_path(@book) %></p>
+<h1>Author: <%= @book.author%></h1>
+
+<div>
+  <%= link_to "Back to browsing books.", root_path %>
+  <%= link_to "Edit", edit_book_path(@book) if policy(@book).edit? %>
+  <%=  button_to "Delete", @book, method: :delete if policy(@book).destroy?%>
+</div>

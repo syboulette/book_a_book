@@ -42,3 +42,4 @@ puts "Creating 20 fake books"
     book.save!
     end
 end
+
