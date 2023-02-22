@@ -1,0 +1,32 @@
+.card p {
+  opacity: .5;
+}
+
+.card {
+  height: auto;
+  width: 25%;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgb(230,230,230);
+  text-align: center;
+  padding: 5px;
+  border: 1px solid rgb(230,230,230);
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  border: 1px solid rgb(230,230,230);
+}
+.container h2 {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
