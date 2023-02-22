@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   delete "/books/:id", to: "books#destroy"
   resources :books
-  resources :rentals, only: [:index]
+  resources :rentals, only: [:index, :show]
 end
