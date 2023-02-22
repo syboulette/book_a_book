@@ -3,7 +3,6 @@
   <% if user_signed_in? %>
       <p><%= link_to "Add a book", new_book_path %></p>
   <% end %>
-  <%= Faker::Lorem.sentences(number: 200) %>
   <div class="card-product">
     <div class="container">
       <h2 class="text-center">Here are some of the amazing books you can rent with book a book!</h2>
