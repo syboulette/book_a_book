@@ -1,29 +1,32 @@
-require 'faker'
-
-Book.destroy_all
+puts 'Cleaning users database...'
 User.destroy_all
 
-# FAKER USER 
+puts 'creating users...'
 
-puts 'creating 20 fake users'
-
-  20.times do User.create(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      email: Faker::Internet.email(domain: 'example'), 
-      password: Faker::Internet.password(min_length: 6)
+20.times do
+  user = User.create(
+    first_name: Faker::Name.first_name,      #=> "Kaci"
+    last_name: Faker::Name.last_name,        #=> "Ernser"
+    email: Faker::Internet.email(domain: 'example'), #=> "alice@example.name"
+    password: Faker::Internet.password(min_length: 6)
   )
-  end
+end
+puts 'Finished seeding users!'
 
-puts "Creating 20 fake books"
-  3.times do Book.create(
-      title: Faker::Book.title, 
-      author: Faker::Book.author,
-      genre: Faker::Book.genre,
-      date_of_publication: Faker::Date.backward(days: 100_00),
-      language: ["English", "Portuguese", "French", "Spanish", "German"].sample,
-      daily_price: rand(1..2),
-      # users: user,
-      status: false
+# FAKER BOOKS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+puts 'Cleaning books database...'
+
+Book.destroy_all
+puts 'creating books...'
+
+20.times do
+  book = Book.create(
+    title: Faker::Book.title, #=> "The Odd Sister",
+    author: Faker::Book.author, #=> "Alysha Olsen"
+    genre: Faker::Book.genre, #=> "Mystery"
+    date_of_publication: rand(1..2023),
+    language: ["English", "Portuguese", "French", "Spanish", "German"].sample.to_s,
+    daily_price: rand(0.01..10.00)
   )
-  end
+end
+puts 'Finished seeding books!'
