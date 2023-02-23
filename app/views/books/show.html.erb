@@ -2,7 +2,7 @@
 <h1>Author: <%= @book.author%></h1>
 
 <div>
-  <%= link_to "Book this book", new_rental_path(@book)%>
+  <%= link_to "Book this book", new_book_rental_path(@book)%>
   <%= link_to "Back to browsing", root_path %>
   <%= link_to "Edit", edit_book_path(@book) if policy(@book).edit? %>
   <%=  button_to "Delete", @book, method: :delete if policy(@book).destroy?%>

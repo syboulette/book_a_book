@@ -1,6 +1,6 @@
-<%= simple_form_for(@rental) do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+<%= simple_form_for [@book, @rental] do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { type: "date" } %>
+  <%= f.input :end_date, as: :string, input_html: { type: "date" } %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 

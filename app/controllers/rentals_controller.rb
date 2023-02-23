@@ -8,6 +8,7 @@ class RentalsController < ApplicationController
 
   def new
     @rental = Rental.new
+    @book = Book.find(params[:book_id])
     authorize @rental
   end
 
@@ -17,10 +18,11 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
+    @rental.book = Book.find(params[:book_id])
 
     authorize @rental
 
-    if @rental.save
+    if @rental.save!
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity

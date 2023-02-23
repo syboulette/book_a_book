@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   delete "/books/:id", to: "books#destroy"
   # get "books/:id", to: "books#show", as: "show_book"
-  resources :books
-  resources :rentals
+  resources :books do
+    resources :rentals, only: [:new, :create]
+  end
+  resources :rentals, except: [:new, :create]
 end
