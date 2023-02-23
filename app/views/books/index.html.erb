@@ -13,7 +13,7 @@
           <h5 class="book-author"> Author: <%= book.author %></h5>
           <h5 class="book-genre"> Genre: <%= book.genre %></h5>
           <p class="book-rental-price">€2</p>
-          <p><%= link_to "read more", show_book_path(book) %></p>
+          <p><%= link_to "read more", book_path(book) %></p>
           <% end %>
         </div>
       </div>
