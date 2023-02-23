@@ -6,14 +6,22 @@ class RentalsController < ApplicationController
     @rentals = Rental.where(user_id: current_user.id)
   end
 
+  def new
+    @rental = Rental.new
+    authorize @rental
+  end
+
   def show
   end
 
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
+
+    authorize @rental
+
     if @rental.save
-      redirect_to rental_path(@rental)
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
