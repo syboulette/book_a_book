@@ -1,11 +1,13 @@
 <div class="content">
   <div><h1>Welcome to </h1><h1 class="logo-type">Book a Book</h1></div>
   <% if user_signed_in? %>
-      <p><%= link_to "Add a book", new_book_path %></p>
+      <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg"  %></p>
   <% end %>
   <div class="card-product">
     <div class="container">
-      <h2 class="text-center">Here are some of the amazing books you can rent with book a book!</h2>
+      <h3 class="text-center" >There are stories hidden on our bookshelves.</h3>
+      <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
+      <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
       <div class="cards">
         <div class="card">
           <% @books.each do |book| %>
@@ -14,7 +16,7 @@
           <h5 class="book-genre"> Genre: <%= book.genre %></h5>
           <h5 class="book-rental-price"> Daily price: <%= book.daily_price %> Cents </h5>
           <h6 class="book-description"><em><%= book.description %></em></h6>
-          <p><%= link_to "read more", book_path(book) %></p>
+          <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
           <% end %>
         </div>
       </div>
