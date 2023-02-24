@@ -1,4 +1,16 @@
 <h1>User can see all rentals</h1>
-<% @rentals.each do |rental| %>
-  <%= rental.book %>
-<% end %>
+
+  <ul>
+    <% @rentals.each do |rental| %>
+      <li><%= rental.book.title %></li>
+      <li><%= rental.book.author %></li>
+      <li>Date of Publication: <%= rental.book.date_of_publication%></li>
+      <li>Start Date: <%= rental.start_date %></li>
+      <li>End Date: <%= rental.end_date %></li>
+      <p></p>
+    <strong>Total Price: </strong><%= rental.book.daily_price * (rental.end_date.jd - rental.start_date.jd) %>
+    <% end %>
+  </ul>
+
+<%= link_to "Back to browsing", root_path %>
+<p></p>

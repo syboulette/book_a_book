@@ -4,6 +4,9 @@ class RentalPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def resolve
+      scope.all
+    end
   end
 
   def new?

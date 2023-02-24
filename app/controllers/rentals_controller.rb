@@ -3,6 +3,7 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
+    @rentals = policy_scope(Rental)
     @rentals = Rental.where(user_id: current_user.id)
   end
 
@@ -23,7 +24,7 @@ class RentalsController < ApplicationController
     authorize @rental
 
     if @rental.save!
-      redirect_to root_path
+      redirect_to rentals_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class RentalsController < ApplicationController
     @rental.destroy
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
   end
-
+  
   private
 
   def rental_params
