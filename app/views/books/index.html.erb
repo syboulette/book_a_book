@@ -12,7 +12,8 @@
           <h4 class="book-title"> Title: <%= book.title %></h4>
           <h5 class="book-author"> Author: <%= book.author %></h5>
           <h5 class="book-genre"> Genre: <%= book.genre %></h5>
-          <p class="book-rental-price">€2</p>
+          <h5 class="book-rental-price"> Daily price: <%= book.daily_price %> Cents </h5>
+          <h6 class="book-description"><em><%= book.description %></em></h6>
           <p><%= link_to "read more", book_path(book) %></p>
           <% end %>
         </div>
