@@ -6,7 +6,7 @@ class RentalsController < ApplicationController
     @rentals = policy_scope(Rental)
     @rentals = Rental.where(user_id: current_user.id)
   end
-  
+
   def new
     @rental = Rental.new
     @book = Book.find(params[:book_id])
@@ -21,11 +21,7 @@ class RentalsController < ApplicationController
     authorize @rental
     @rental.user = current_user
     if @rental.save!
-<<<<<<< HEAD
-      redirect_to rental_path(@rental)
-=======
       redirect_to rentals_path
->>>>>>> 77aabad5e70231015362f591775c6c4d072ac879
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +33,7 @@ class RentalsController < ApplicationController
     @rental.destroy
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
   end
-  
+
   private
 
   def rental_params
