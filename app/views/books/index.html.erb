@@ -1,8 +1,13 @@
 <div class="content">
   <div><h1>Welcome to </h1><h1 class="logo-type">Book a Book</h1></div>
   <% if user_signed_in? %>
+<<<<<<< HEAD
       <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg"  %></p>
       <p><%= link_to "My booked books", rentals_path, class:"btn btn-primary btn-lg"  %></p>
+=======
+      <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
+      <p><%= link_to "Dashboard", rentals_path, class:"btn btn-primary btn-lg" %></p>
+>>>>>>> a2d92d63828ed5ed4aaa42e9b9b8f1253ca27ad8
   <% end %>
   <div class="card-product">
     <div class="container">
@@ -15,9 +20,15 @@
           <h4 class="book-title"> Title: <%= book.title %></h4>
           <h5 class="book-author"> Author: <%= book.author %></h5>
           <h5 class="book-genre"> Genre: <%= book.genre %></h5>
+<<<<<<< HEAD
           <h5 class="book-rental-price"> Daily price: <%= book.daily_price %> Cents </h5>
           <h6 class="book-description"><em><%= book.description %></em></h6>
           <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
+=======
+          <h6 class="book-description"><em><%= book.description %></em></h6>
+          <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
+          <p class="book-rental-price"><%= book.daily_price %>€</p>
+>>>>>>> a2d92d63828ed5ed4aaa42e9b9b8f1253ca27ad8
           <% end %>
         </div>
       </div>

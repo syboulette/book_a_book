@@ -21,7 +21,11 @@ class RentalsController < ApplicationController
     authorize @rental
     @rental.user = current_user
     if @rental.save!
+<<<<<<< HEAD
       redirect_to rentals_path
+=======
+      redirect_to rental_path(@rental)
+>>>>>>> a2d92d63828ed5ed4aaa42e9b9b8f1253ca27ad8
     else
       render :new, status: :unprocessable_entity
     end
