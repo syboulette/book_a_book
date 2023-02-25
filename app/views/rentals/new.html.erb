@@ -1,6 +1,6 @@
-<%= simple_form_for [@book, @rental] do |f| %>
-  <%= f.input :start_date, as: :string, input_html: { type: "date" } %>
-  <%= f.input :end_date, as: :string, input_html: { type: "date" } %>
+<%= simple_form_for [@book, @rental], data: { controller: 'flatpickr' } do |f| %>
+  <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+  <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
