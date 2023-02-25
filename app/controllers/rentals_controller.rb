@@ -6,6 +6,12 @@ class RentalsController < ApplicationController
     @rentals = policy_scope(Rental)
     @rentals = Rental.where(user_id: current_user.id)
   end
+  
+  def new
+    @rental = Rental.new
+    @book = Book.find(params[:book_id])
+    authorize @rental
+  end
 
   def show
   end
@@ -26,11 +32,6 @@ class RentalsController < ApplicationController
   end
 
 
-def new
-  @rental = Rental.new
-  @book = Book.find(params[:book_id])
-  authorize @rental
-end
 
   def destroy
     @rental.destroy
