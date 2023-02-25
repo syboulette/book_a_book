@@ -1,9 +1,17 @@
 <h1>Title: <%= @book.title %></h1>
 <h1>Author: <%= @book.author%></h1>
+<h2><%= @book.description %></h2>
+<h2>Language: <%= @book.language %></h2>
+<h2>Daily price: <%= @book.daily_price%> Cents </h2>
 
 <div>
   <%= link_to "Book this book", new_book_rental_path(@book)%>
-  <%= link_to "Back to browsing", root_path %>
-  <%= link_to "Edit", edit_book_path(@book) if policy(@book).edit? %>
-  <%=  button_to "Delete", @book, method: :delete if policy(@book).destroy?%>
+  <%= link_to "Back to browsing", root_path, class: "btn btn-secondary"  %>
+
+  <% if policy(@book).edit? %>
+        <%= link_to "Edit", edit_book_path, class: "btn btn-warning" %>
+  <% end %>
+  <% if policy(@book).destroy? %>
+        <%= link_to "Delete", book_path(@book), class: "btn btn-danger my-2", data: { turbo_method: :delete, turbo_confirm: "Do you want to delete the book?" } %>
+  <% end %>
 </div>

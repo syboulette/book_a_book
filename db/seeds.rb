@@ -26,7 +26,8 @@ puts 'creating books...'
     date_of_publication: Faker::Date.backward(days: 100_00),
     language: ["English", "Portuguese", "French", "Spanish", "German"].sample.to_s,
     daily_price: rand(0.01..10.00),
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    description: Faker::Quotes::Shakespeare.hamlet_quote
   )
 end
 puts 'Finished seeding books!'
