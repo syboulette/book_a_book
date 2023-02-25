@@ -6,7 +6,7 @@ class RentalsController < ApplicationController
     @rentals = policy_scope(Rental)
     @rentals = Rental.where(user_id: current_user.id)
   end
-
+  
   def new
     @rental = Rental.new
     @book = Book.find(params[:book_id])
@@ -18,17 +18,20 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.user = current_user
-    @rental.book = Book.find(params[:book_id])
-
     authorize @rental
-
+    @rental.user = current_user
     if @rental.save!
+<<<<<<< HEAD
+      redirect_to rental_path(@rental)
+=======
       redirect_to rentals_path
+>>>>>>> 77aabad5e70231015362f591775c6c4d072ac879
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+
 
   def destroy
     @rental.destroy

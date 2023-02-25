@@ -16,4 +16,20 @@ class RentalPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def show?
+    true
+  end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
 end
