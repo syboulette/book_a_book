@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_184326) do
     t.string "title"
     t.string "author"
     t.string "genre"
-    t.integer "date_of_publication"
+    t.date "date_of_publication"
     t.integer "daily_price"
     t.string "language"
     t.datetime "created_at", null: false

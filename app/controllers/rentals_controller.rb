@@ -20,6 +20,13 @@ class RentalsController < ApplicationController
     end
   end
 
+
+def new
+  @rental = Rental.new
+  @book = Book.find(params[:book_id])
+  authorize @rental
+end
+
   def destroy
     @rental.destroy
     redirect_to root_path, status: :see_other, notice: "Your booking has been removed"
