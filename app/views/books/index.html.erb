@@ -4,6 +4,11 @@
       <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
       <p><%= link_to "Dashboard", rentals_path, class:"btn btn-primary btn-lg" %></p>
   <% end %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <div class="card-product">
     <div class="container">
       <h3 class="text-center" >There are stories hidden on our bookshelves.</h3>
