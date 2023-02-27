@@ -8,7 +8,8 @@ class BooksController < ApplicationController
       {
         lat: book.latitude,
         lng: book.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {book: book})
+        info_window_html: render_to_string(partial: "info_window", locals: {book: @book}),
+        marker_html: render_to_string(partial: "marker", locals: {book: @book})
       }
     end
 
