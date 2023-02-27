@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   # validates :title, presence: true
   # validates :date_of_publication, presence: true
   # validates :author, presence: true
-  validates_presence_of :title, :date_of_publication, :author, :daily_price
+  validates_presence_of :title, :date_of_publication, :author, :daily_price, :address
 
   include PgSearch::Model
     pg_search_scope :book_search,

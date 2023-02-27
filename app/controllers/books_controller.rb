@@ -8,8 +8,8 @@ class BooksController < ApplicationController
       {
         lat: book.latitude,
         lng: book.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {book: @book}),
-        marker_html: render_to_string(partial: "marker", locals: {book: @book})
+        info_window_html: render_to_string(partial: "info_window", locals: {book: book}),
+        marker_html: render_to_string(partial: "marker", locals: {book: book})
       }
     end
 
@@ -66,7 +66,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language, :description)
+    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language, :description, :address)
   end
 
   def set_book
