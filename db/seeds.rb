@@ -28,6 +28,7 @@ puts 'creating books...'
     daily_price: rand(0.01..10.00),
     user_id: User.all.sample.id,
     description: Faker::Quotes::Shakespeare.hamlet_quote
+    address: Faker::Address.full_address
   )
 end
 puts 'Finished seeding books!'
