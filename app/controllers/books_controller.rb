@@ -4,6 +4,15 @@ class BooksController < ApplicationController
 
   def index
     @books = policy_scope(Book).all
+    @markers = @books.geocoded.map do |book|
+      {
+        lat: book.latitude,
+        lng: book.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {book: book}),
+        marker_html: render_to_string(partial: "marker", locals: {book: book})
+      }
+    end
+
     if params[:query].present?
       @books = Book.book_search(params[:query])
     else
@@ -57,7 +66,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language, :description)
+    params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language, :description, :address)
   end
 
   def set_book

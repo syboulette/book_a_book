@@ -4,9 +4,14 @@
       <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
       <p><%= link_to "Dashboard", rentals_path, class:"btn btn-primary btn-lg" %></p>
   <% end %>
+        <h1 class="text-center" >There are stories hidden on every bookshelf in the world.</h1>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   <div class="card-product">
     <div class="container">
-      <h3 class="text-center" >There are stories hidden on our bookshelves.</h3>
       <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
       <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
       <div class="cards">
