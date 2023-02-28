@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user, optional: true
+  has_one_attached :cover
   has_many :rentals
   # validates :title, presence: true
   # validates :date_of_publication, presence: true
