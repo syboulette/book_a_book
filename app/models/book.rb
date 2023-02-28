@@ -1,10 +1,12 @@
 class Book < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user, optional: true
   has_many :rentals
   # validates :title, presence: true
   # validates :date_of_publication, presence: true
   # validates :author, presence: true
-  validates_presence_of :title, :date_of_publication, :author, :daily_price
+  validates_presence_of :title, :date_of_publication, :author, :daily_price, :address
 
   include PgSearch::Model
     pg_search_scope :book_search,
@@ -15,5 +17,4 @@ class Book < ApplicationRecord
       using: {
       tsearch: { prefix: true }
       }
-
 end

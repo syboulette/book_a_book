@@ -4,7 +4,7 @@ User.destroy_all
 puts 'creating users...'
 
 20.times do
-  user = User.create(
+  user = User.create!(
     first_name: Faker::Name.first_name,      #=> "Kaci"
     last_name: Faker::Name.last_name,        #=> "Ernser"
     email: Faker::Internet.email(domain: 'example'), #=> "alice@example.name"
@@ -27,7 +27,8 @@ puts 'creating books...'
     language: ["English", "Portuguese", "French", "Spanish", "German"].sample.to_s,
     daily_price: rand(1..2),
     user_id: User.all.sample.id,
-    description: Faker::Quotes::Shakespeare.hamlet_quote
+    description: Faker::Quotes::Shakespeare.hamlet_quote,
+    address: ["Berlin", "London", "Munich", "New Delhi", "Paris", "Miami"].sample
   )
 end
 puts 'Finished seeding books!'
