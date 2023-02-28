@@ -14,12 +14,14 @@ class RentalsController < ApplicationController
   end
 
   def show
+    authorize @rental
   end
 
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
     @book = Book.find(params[:book_id])
+    @rental.book = @book
 
     authorize @rental
 
