@@ -17,7 +17,7 @@
       <div class="cards">
         <div class="card">
           <% @books.each do |book| %>
-          <%= cl_image_tag(book.cover.key, :default_image => "e_improve,w_300,h_600,c_thumb,g_auto/v1677608528/felix.jpg") %>
+          <%= cl_image_tag(book.cover.key, :default_image => "felix.jpg") %>
           <h4 class="book-title"> Title: <%= book.title %></h4>
           <h5 class="book-author"> Author: <%= book.author %></h5>
           <h5 class="book-genre"> Genre: <%= book.genre %></h5>

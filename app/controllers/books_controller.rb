@@ -69,6 +69,10 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :author, :genre, :date_of_publication, :daily_price, :language, :description, :address, :cover)
   end
 
+  def book_cover
+    @book.cover.attached? @book.cover.key : cl_image_tag "felix.jpg"
+  end
+
   def set_book
     @book = Book.find(params[:id])
   end
