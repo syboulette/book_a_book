@@ -24,8 +24,8 @@ puts 'creating books...'
     author: Faker::Book.author, #=> "Alysha Olsen"
     genre: Faker::Book.genre, #=> "Mystery"
     date_of_publication: Faker::Date.backward(days: 100_00),
-    language: ["English", "Portuguese", "French", "Spanish", "German"].sample,
-    daily_price: rand(0.01..10.00),
+    language: ["English", "Portuguese", "French", "Spanish", "German"].sample.to_s,
+    daily_price: rand(1..2),
     user_id: User.all.sample.id,
     description: Faker::Quotes::Shakespeare.hamlet_quote,
     address: ["Berlin", "London", "Munich", "New Delhi", "Paris", "Miami"].sample
