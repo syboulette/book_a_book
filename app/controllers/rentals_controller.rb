@@ -14,20 +14,23 @@ class RentalsController < ApplicationController
   end
 
   def show
+    authorize @rental
   end
 
   def create
     @rental = Rental.new(rental_params)
-    authorize @rental
     @rental.user = current_user
+    @book = Book.find(params[:book_id])
+    @rental.book = @book
+
+    authorize @rental
+
     if @rental.save!
       redirect_to rental_path(@rental)
     else
       render :new, status: :unprocessable_entity
     end
   end
-
-
 
   def destroy
     @rental.destroy

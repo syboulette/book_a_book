@@ -1,0 +1,18 @@
+<div class="content">
+<h1> My Books </h1>
+  <div class="container">
+    <% current_user.books.each do |book| %>
+      <div class="card">
+        <%if book.cover.present?%>
+          <%=  cl_image_tag(book.cover.key, :width => 250) %>
+        <%else%>
+          <%= cl_image_tag("v5hsn2kpxcxprmmx08o3nanwgb9w", :width => 250) %>
+        <%end%>
+        <p class="card-text"><%= book.title %></p>
+        <p class="card-text"><%= book.daily_price %>€ %></p>
+        <h6 class="card-text book-title"><em><%= book.description %></em></h6>
+        <p><%= link_to "edit", edit_book_path(book), class: "btn btn-info btn-sm "%></p>
+      </div>
+    <% end %>
+  </div>
+</div>
