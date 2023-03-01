@@ -12,10 +12,23 @@ h1 {
 }
 .book-title {
   text-transform: capitalize;
+  font-weight: 600;
+  padding-top: 10px;
 }
 .book-author {
   text-transform: capitalize;
 }
 .book-extract {
   font-style: italic;
+  padding-top: 5px;
+}
+
+.content {
+  margin: 40px;
+  align-items: center;
+}
+.intro {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 20px;
 }
