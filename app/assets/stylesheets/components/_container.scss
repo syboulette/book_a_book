@@ -1,0 +1,30 @@
+
+
+.container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  // flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card {
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 10px;
+  align-items: center;
+  align-self: middle;
+  width: 22%;
+  height: 500px;
+  text-align: center;
+}
+.card:hover {
+  color: var(--white);
+  background: var(--red);
+}
+img {
+  max-height: 200px;
+  max-width: auto;
+}
