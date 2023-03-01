@@ -6,11 +6,7 @@
   <%= f.input :daily_price %>
   <%= f.input :language %>
   <%= f.input :description %>
-<<<<<<< HEAD
-  <%= f.input :cover, as: :file, input_html: { multiple: false } %>
-=======
   <%= f.input :cover, as: :file %>
->>>>>>> 1943baef3c8b965f3f7aa0269ea3b0b4da2970a4
   <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
