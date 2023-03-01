@@ -1,0 +1,18 @@
+.banner {
+  padding: 200px 0;
+  height: 250px;
+  background-image: asset-url("claude_monet_landscape.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner h1 {
+  color: rgb(28, 28, 28);
+}
+
+.banner p {
+  color: rgb(24, 24, 24);
+  font-size: 20px;
+  opacity: 0.7;
+}

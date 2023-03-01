@@ -1,15 +1,26 @@
+<div class="container">
+</div>
+<div class="banner">
+  <h1>There are stories hidden on every bookshelf in the world.</h1>
+  <p>Looking for a special book? Need some reading inspiration?</p>
+  <p>Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</p>
+  <p><%= link_to "Browse our books", new_book_path, class:"btn btn-primary btn-lg" %></p>
+</div>
+<div class="container">
+</div>
+
+
+
+
 <div class="content">
-  <div><h1>Welcome to </h1><h1 class="logo-type">Book a Book</h1></div>
+  <%# <div>
+    <h1 class="logo-type">Book a Book</h1>
+  </div> %>
   <% if user_signed_in? %>
       <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
       <p><%= link_to "Dashboard", rentals_path, class:"btn btn-primary btn-lg" %></p>
   <% end %>
         <h1 class="text-center" >There are stories hidden on every bookshelf in the world.</h1>
-  <div style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
   <div class="card-product">
     <div class="container">
       <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
@@ -27,5 +38,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
