@@ -1,11 +1,13 @@
 <div class="content">
   <%# Intro text %>
-  <h4 class="text-center" >Books have replaced the story tellers and now  bring the knowledge to the people</h4>
-  <h4 class="text-center" >At Book a Book, we want to help you travel the world one page at the time!</h4>
-  <h4 class="text-center" >You can have the book shipped to you or meet the owner to pick it up if he/she is close by.</h4>
-  <h4 class="text-center" >Be mindful and treat every book like their were your own so that the next reader can enjoy the stories inside.</h4>
+  <div class="intro">
+  <h5 class="intro-text" >Books have replaced the story tellers and now  bring the knowledge to the people</h5>
+  <h5 class="intro-text" >At Book a Book, we want to help you travel the world one page at the time!</h5>
+  <h5 class="intro-text" >You can have the book shipped to you or meet the owner to pick it up if he/she is close by.</h5>
+  <h5 class="intro-text" >Be mindful and treat every book like their were your own so that the next reader can enjoy the stories inside.</h5>
+  </div>
   <%# map stuff %>
-  <div style="width: 100%; height: 600px;"
+  <div style="width: 50%; height: 300px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -36,10 +38,10 @@
         <%else%>
           <%= cl_image_tag("v5hsn2kpxcxprmmx08o3nanwgb9w", :width => 250) %>
         <%end%>
-        <h6 class="card-text book-description"><em><%= book.description %></em></h6>
+        <h6 class="card-text book-title"><em><%= book.title %></em></h6>
+        <p class="card-text book-extract"><%= book.description %></p>
+        <p class="card-text"><%= book.daily_price %>€</p>
         <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
-        <p class="card-text"><%= book.daily_price %>€ %></p>
-        <p class="card-text"><%= book.description %></p>
       </div>
     <% end %>
   </div>

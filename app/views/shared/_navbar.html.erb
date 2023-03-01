@@ -8,6 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <p class="hello">Hello <%= current_user.first_name.capitalize! %></p>
           <li class="nav-item active">
             <%= link_to "Home", "/", class: "nav-link" %>
           </li>
