@@ -1,12 +1,4 @@
 <div class="content">
-<<<<<<< HEAD
-  <h1 class="text-center" >There are stories hidden on every bookshelf in the world.</h1>
-  <% if user_signed_in? %>
-      <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
-      
-  <% end %>
-  <div style="width: 100%; height: 600px;"
-=======
   <%# Intro text %>
   <div class="intro">
   <h5 class="intro-text" >Books have replaced the story tellers and now  bring the knowledge to the people</h5>
@@ -16,18 +8,10 @@
   </div>
   <%# map stuff %>
   <div style="width: 50%; height: 300px;"
->>>>>>> 1943baef3c8b965f3f7aa0269ea3b0b4da2970a4
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-<<<<<<< HEAD
-  <div class="card-product">
-    <div class="container">
-      <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
-      <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
-      <%= form_tag books_path, method: :get, class: "d-flex" do %>
-=======
   <div class="text-intro">
     <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
     <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
@@ -35,7 +19,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <%= form_tag books_path, method: :get, class: "d-flex" do %>
->>>>>>> 1943baef3c8b965f3f7aa0269ea3b0b4da2970a4
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
@@ -43,19 +26,6 @@
       %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
-<<<<<<< HEAD
-      <div class="cards">
-        <div class="card">
-          <% @books.each do |book| %>
-          <h4 class="book-title"> Title: <%= book.title %></h4>
-          <h5 class="book-author"> Author: <%= book.author %></h5>
-          <h5 class="book-genre"> Genre: <%= book.genre %></h5>
-          <h6 class="book-description"><em><%= book.description %></em></h6>
-          <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
-          <p class="book-rental-price"><%= book.daily_price %>€</p>
-          <% end %>
-        </div>
-=======
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,7 +42,6 @@
         <p class="card-text book-extract"><%= book.description %></p>
         <p class="card-text"><%= book.daily_price %>€</p>
         <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
->>>>>>> 1943baef3c8b965f3f7aa0269ea3b0b4da2970a4
       </div>
     <% end %>
   </div>

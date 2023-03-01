@@ -24,16 +24,10 @@
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
-<<<<<<< HEAD
-      <%= f.input :photo_id, as: :file, 
-                  required: false,
-                  input_html: { multiple: false } %>
-=======
       <%= f.input :photo_id,
                   direct_upload: true,
                   required: false,
                   input_html: { autocomplete: image_tag "istockphoto-1142665470-612x612.jpg" } %>
->>>>>>> 1943baef3c8b965f3f7aa0269ea3b0b4da2970a4
     </div>
 
     <div class="form-actions">
