@@ -36,7 +36,7 @@
         <%if book.cover.present?%>
           <%=  cl_image_tag(book.cover.key, :width => 250) %>
         <%else%>
-          <%= cl_image_tag("v5hsn2kpxcxprmmx08o3nanwgb9w", :width => 250) %>
+          <%= cl_image_tag("https://res.cloudinary.com/dlxysxfma/image/upload/e_improve,w_300,h_600,c_thumb,g_auto/v1677625876/development/2oknsxny559gei719cqmefgqzid4.jpg", :width => 250) %>
         <%end%>
         <h6 class="card-text book-title"><em><%= book.title %></em></h6>
         <p class="card-text book-extract"><%= book.description %></p>
