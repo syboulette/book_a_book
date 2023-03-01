@@ -1,0 +1,16 @@
+<div class="container">
+    <% current-user.books.each do |book| %>
+      <div class="card">
+        <%if book.cover.present?%>
+          <%=  cl_image_tag(book.cover.key, :width => 250) %>
+        <%else%>
+          <%= cl_image_tag("v5hsn2kpxcxprmmx08o3nanwgb9w", :width => 250) %>
+        <%end%>
+        <h6 class="card-text book-description"><em><%= book.description %></em></h6>
+        <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
+        <p class="card-text"><%= book.daily_price %>€ %></p>
+        <p class="card-text"><%= book.description %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

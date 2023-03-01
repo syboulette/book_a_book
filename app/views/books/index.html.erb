@@ -1,32 +1,46 @@
 <div class="content">
-  <div><h1>Welcome to </h1><h1 class="logo-type">Book a Book</h1></div>
-  <% if user_signed_in? %>
-      <p><%= link_to "Add a book", new_book_path, class:"btn btn-primary btn-lg" %></p>
-      <p><%= link_to "Dashboard", rentals_path, class:"btn btn-primary btn-lg" %></p>
-  <% end %>
-        <h1 class="text-center" >There are stories hidden on every bookshelf in the world.</h1>
+  <%# Intro text %>
+  <h4 class="text-center" >Books have replaced the story tellers and now  bring the knowledge to the people</h4>
+  <h4 class="text-center" >At Book a Book, we want to help you travel the world one page at the time!</h4>
+  <h4 class="text-center" >You can have the book shipped to you or meet the owner to pick it up if he/she is close by.</h4>
+  <h4 class="text-center" >Be mindful and treat every book like their were your own so that the next reader can enjoy the stories inside.</h4>
+  <%# map stuff %>
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="card-product">
-    <div class="container">
-      <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
-      <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
-      <div class="cards">
-        <div class="card">
-          <% @books.each do |book| %>
-          <%= cl_image_tag(book.cover.key, :default_image => "felix.jpg") %>
-          <h4 class="book-title"> Title: <%= book.title %></h4>
-          <h5 class="book-author"> Author: <%= book.author %></h5>
-          <h5 class="book-genre"> Genre: <%= book.genre %></h5>
-          <h6 class="book-description"><em><%= book.description %></em></h6>
-          <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
-          <p class="book-rental-price"><%= book.daily_price %>€</p>
-          <% end %>
-        </div>
+  <div class="text-intro">
+    <h4 class="text-center" >Looking for a special book? Need some reading inspiration?</h4>
+    <h4 class="text-center" >Check out the books that are <b>close</b> to you, <b>connect</b> with fellow readers and <b>find</b> a book!</h4>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%= form_tag books_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Book"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="container">
+    <% @books.each do |book| %>
+      <div class="card">
+        <%if book.cover.present?%>
+          <%=  cl_image_tag(book.cover.key, :width => 250) %>
+        <%else%>
+          <%= cl_image_tag("v5hsn2kpxcxprmmx08o3nanwgb9w", :width => 250) %>
+        <%end%>
+        <h6 class="card-text book-description"><em><%= book.description %></em></h6>
+        <p><%= link_to "read more", book_path(book), class: "btn btn-info btn-sm "%></p>
+        <p class="card-text"><%= book.daily_price %>€ %></p>
+        <p class="card-text"><%= book.description %></p>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
